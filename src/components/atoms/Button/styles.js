@@ -47,9 +47,9 @@ export const Button = styled.button`
         color: ${({ theme, colorScheme, variant }) => theme.colors[colorScheme].button[variant].hover.text};
         background-color: ${({ theme, colorScheme, variant }) => theme.colors[colorScheme].button[variant].hover.background};
         border: ${({ theme, colorScheme, variant }) => theme.styledVariant('variant', {
-    primary: `1px solid ${theme.colors[colorScheme].button[variant].hover.border}`,
-    secondary: '0',
-  })};
+          primary: `1px solid ${theme.colors[colorScheme].button[variant].hover.border}`,
+          secondary: '0',
+        })};
 
         ${({ variant, $label, iconEnd }) => (variant === 'secondary' && $label) && css`
           background-size: ${iconEnd ? 'calc(100% - 18px)' : '100%'} 1px;
