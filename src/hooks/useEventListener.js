@@ -15,7 +15,7 @@ const useEventListener = (eventName, handler, element = global, options = {}) =>
     }
 
     const eventListener = (event) => savedHandler.current(event)
-    
+
     const opts = { capture, passive, once }
 
     element.addEventListener(eventName, eventListener, opts)
