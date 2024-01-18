@@ -20,7 +20,11 @@ const LinkWrapper = ({ target, href, children }) => (
     {/* Check if href is provided and target is valid */}
     {href && ['_self', '_blank', '_parent', '_top'].includes(target) ? (
       // Render a link with the provided href and target
-      <Link href={href} passHref target={target}>
+      <Link
+        href={href}
+        passHref
+        target={target}
+      >
         {children}
       </Link>
     ) : (
@@ -72,28 +76,33 @@ const Button = ({
     const offset = 0
     const element = document.getElementById(scrollTo)
 
-    if (!!element) {
-      const y = element.getBoundingClientRect().top + window.scrollY - offset
-
-      // Scroll to section
-      window.scrollTo({ top: y, behavior: 'smooth' })
-
-      // Set focus on first focusable element of current section
-      const focusable = element.querySelectorAll(
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-      )
-      if (focusable && focusable.length > 0) {
-        focusable[0].focus({ preventScroll: true })
-      }
-
-      if (handleClick) {
-        handleClick && handleClick()
-      }
+    if (!element) {
+      return
     }
+
+    const { top } = element.getBoundingClientRect()
+    const y = top + window.scrollY - offset
+
+    // Scroll to section
+    window.scrollTo({ top: y, behavior: 'smooth' })
+
+    // Set focus on first focusable element of current section
+    const focusable = element.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    )
+
+    if (focusable.length > 0) {
+      focusable[0].focus({ preventScroll: true })
+    }
+
+    handleClick?.()
   }
 
   return (
-    <LinkWrapper href={href} target={target}>
+    <LinkWrapper
+      href={href}
+      target={target}
+    >
       <S.Button
         {...props}
         {...ariaProps}
@@ -141,7 +150,7 @@ Button.propTypes = {
   iconEndSize: PropTypes.string,
   innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   scrollTo: PropTypes.string,
-  handleClick: PropTypes.func
+  handleClick: PropTypes.func,
 }
 
 export default Button
