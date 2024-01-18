@@ -1,10 +1,11 @@
 'use client'
 
 import PropTypes from 'prop-types'
-import { forwardRef, useContext } from 'react'
+import { forwardRef } from 'react'
 import Link from 'next/link'
 
-import { SectionThemeContext } from '@/contexts/SectionTheme'
+import { useSectionThemeContext } from '@/contexts/SectionTheme'
+
 import getAriaProps from '@/utils/button-aria-props'
 
 import Icon from '@/components/atoms/Icon'
@@ -44,14 +45,13 @@ const Button = ({
   variant = 'primary',
   iconEnd,
   iconEndSize,
-  inheritedColorScheme,
   innerRef,
   scrollTo,
   handleClick = null,
   ...props
 }) => {
   // Get the selected color scheme from the context
-  const { selectedColorScheme = inheritedColorScheme || 'light' } = useContext(SectionThemeContext) || {}
+  const colorScheme = useSectionThemeContext()
 
   // Generate the ARIA props for the button
   const ariaProps = getAriaProps({
@@ -102,7 +102,7 @@ const Button = ({
         href={href}
         iconEnd={iconEnd}
         variant={variant}
-        colorScheme={selectedColorScheme}
+        colorScheme={colorScheme}
         ref={innerRef}
         onClick={scrollTo ? handleScrollTo : handleClick}
       >
