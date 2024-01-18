@@ -36,7 +36,7 @@ export default {
       }
     }
   },
-  gray: {
+  grey: {
     surface: {
       background: '#ccc',
       text: '#000000',
@@ -110,7 +110,7 @@ export default {
       },
     }
   },
-  grayscale: {
+  greyscale: {
     white: '#FFFFFF',
     black: '#000000',
   },
