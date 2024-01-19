@@ -5,7 +5,9 @@ export const Typography = styled.p`
 
   font-weight: ${({ theme }) => theme.styledVariant('weight', {
     default: 400,
+    light: 300,
     medium: 500,
+    semibold: 700,
     bold: 800
   })};
   color: ${({ theme, colorScheme }) => theme.colors[colorScheme].surface.text};
