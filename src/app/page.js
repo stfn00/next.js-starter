@@ -1,9 +1,9 @@
-import ThemeProvider from '@/contexts/Theme'
+import ThemeProvider from '@/contexts/Theme.context'
 
-import Header from '@/components/layouts/Header'
-import Footer from '@/components/layouts/Footer'
+import Header from '@/components/layouts/Header/Header.component'
+import Footer from '@/components/layouts/Footer/Footer.component'
 
-import SectionBuilder from '@/components/organisms/SectionBuilder'
+import SectionBuilder from '@/components/organisms/SectionBuilder/SectionBuilder.component'
 
 const sections = [
   // {
