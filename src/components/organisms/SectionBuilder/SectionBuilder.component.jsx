@@ -1,5 +1,7 @@
 'use client'
 
+import PropTypes from 'prop-types'
+
 import { SectionThemeContext } from '@/contexts/SectionTheme.context'
 
 import * as Components from '@/components/organisms'
@@ -21,5 +23,14 @@ const SectionBuilder = ({ data }) =>
       </SectionThemeContext.Provider>
     ) : null
   })
+
+SectionBuilder.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.shape({
+    type: PropTypes.string.isRequired,
+    sectionID: PropTypes.string,
+    colorScheme: PropTypes.string,
+    // Add additional prop types for each component's props if needed
+  })).isRequired,
+}
 
 export default SectionBuilder

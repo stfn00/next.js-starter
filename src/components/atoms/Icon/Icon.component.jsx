@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { useMemo } from 'react'
 import dynamic from 'next/dynamic'
 
@@ -13,11 +14,16 @@ const getIcon = (name) => {
 const Icon = ({ name, ariaLabel, ...props }) => {
   const SvgIcon = useMemo(() => getIcon(name), [name])
 
-  return SvgIcon ? (
+  return (
     <S.Icon {...props} aria-label={ariaLabel || name.replaceAll('-', ' ')}>
       <SvgIcon />
     </S.Icon>
-  ) : null
+  )
+}
+
+Icon.propTypes = {
+  name: PropTypes.string.isRequired,
+  ariaLabel: PropTypes.string,
 }
 
 export default Icon
