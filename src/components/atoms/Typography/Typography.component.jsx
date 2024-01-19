@@ -28,7 +28,7 @@ Typography.propTypes = {
     PropTypes.string,
     PropTypes.element,
     PropTypes.arrayOf(PropTypes.element),
-  ]).isRequired,
+  ]),
   content: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element,
