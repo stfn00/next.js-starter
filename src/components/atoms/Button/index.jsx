@@ -15,11 +15,10 @@ import * as S from './styles'
 /**
  * Wrapper component for rendering a link
  */
-const LinkWrapper = ({ target, href, children }) => (
-  <>
-    {/* Check if href is provided and target is valid */}
-    {href && ['_self', '_blank', '_parent', '_top'].includes(target) ? (
-      // Render a link with the provided href and target
+const LinkWrapper = ({ target, href, children }) => {
+  // Check if href is provided and target is valid
+  if (href && ['_self', '_blank', '_parent', '_top'].includes(target)) {
+    return (
       <Link
         href={href}
         passHref
@@ -27,12 +26,12 @@ const LinkWrapper = ({ target, href, children }) => (
       >
         {children}
       </Link>
-    ) : (
-      // Render the children as is if href is not provided or target is invalid
-      children
-    )}
-  </>
-)
+    )
+  }
+
+  // Render the children as is if href is not provided or target is invalid
+  return children
+}
 
 /**
  * Button component
