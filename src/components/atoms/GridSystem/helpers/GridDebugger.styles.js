@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import styled, { css, withTheme } from 'styled-components'
 import gridConfig from '@/theme/grid-config'
-import Visible from './Visible'
+import Visible from './Visible.component'
 
 const StyledGridDebuggerWrapper = styled.div`
   width: 100%;

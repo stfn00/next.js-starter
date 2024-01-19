@@ -4,13 +4,13 @@ import PropTypes from 'prop-types'
 import { forwardRef } from 'react'
 import Link from 'next/link'
 
-import { useSectionThemeContext } from '@/contexts/SectionTheme'
+import { useSectionThemeContext } from '@/contexts/SectionTheme.context'
 
 import getAriaProps from '@/utils/button-aria-props'
 
-import Icon from '@/components/atoms/Icon'
+import Icon from '@/components/atoms/Icon/Icon.component'
 
-import * as S from './styles'
+import * as S from './Button.styles'
 
 /**
  * Wrapper component for rendering a link

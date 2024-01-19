@@ -1,6 +1,6 @@
 'use client'
 
-import { SectionThemeContext } from '@/contexts/SectionTheme'
+import { SectionThemeContext } from '@/contexts/SectionTheme.context'
 
 import * as Components from '@/components/organisms'
 

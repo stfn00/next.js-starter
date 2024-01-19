@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import dynamic from 'next/dynamic'
 
-import * as S from './styles'
+import * as S from './Icon.styles'
 
 const getIcon = (name) => {
   const Icon = dynamic(() => import(`@/components/atoms/Icon/glyphs/${name}.svg`), {

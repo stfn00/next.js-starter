@@ -1,9 +1,9 @@
-import Container from './Container'
-import Row from './Row'
-import Col from './Col'
+import Container from './Container.styles'
+import Row from './Row.styles'
+import Col from './Col.styles'
 
-import Visible from './helpers/Visible'
-import SpacerBase from './helpers/SpacerBase'
+import SpacerBase from './helpers/SpacerBase.styles'
+import Visible from './helpers/Visible.component'
 
 export {
   Container,

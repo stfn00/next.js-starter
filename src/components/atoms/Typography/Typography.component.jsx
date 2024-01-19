@@ -1,6 +1,6 @@
-import { useSectionThemeContext } from '@/contexts/SectionTheme'
+import { useSectionThemeContext } from '@/contexts/SectionTheme.context'
 
-import * as S from './styles'
+import * as S from './Typography.styles'
 
 const Typography = ({ children, content, ...props }) => {
   const colorScheme = useSectionThemeContext()
