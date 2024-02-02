@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import { useState, useCallback, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import useEventListener from '@/hooks/useEventListener'
 import { theme } from '@/theme/index'
@@ -28,32 +28,26 @@ const getScreen = () => {
   return screenClass
 }
 
-const Visible = ({ children, breakpoints = [] }) => {
+const Visible = ({ children, breakpoints: propsBreakpoints = [] }) => {
   const [currentScreen, setCurrentScreen] = useState(null)
 
-  const setScreen = () => {
+  const breakpoints = useMemo(() => Array.isArray(propsBreakpoints) ? propsBreakpoints : [propsBreakpoints], [propsBreakpoints])
+
+  const setScreen = useCallback(() => {
     const newScreen = getScreen()
     if (currentScreen !== newScreen) {
       setCurrentScreen(newScreen)
     }
-  }
+  }, [currentScreen])
 
-  useEffect(() => {
-    setScreen()
-  }, [])
+  setScreen()
 
   useEventListener('orientationchange', setScreen)
   useEventListener('resize', setScreen)
 
-  const isVisible = () => {
-    if (Array.isArray(breakpoints)) {
-      return breakpoints.includes(currentScreen)
-    } else if (typeof breakpoints === 'string') {
-      return breakpoints === currentScreen
-    }
-
-    return false
-  }
+  const isVisible = useCallback(() => {
+    return breakpoints.includes(currentScreen)
+  }, [breakpoints, currentScreen])
 
   return isVisible() ? <>{children}</> : null
 }
