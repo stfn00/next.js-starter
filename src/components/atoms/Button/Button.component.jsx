@@ -1,7 +1,6 @@
-'use client'
-
+import { forwardRef, memo, useCallback } from 'react'
 import PropTypes from 'prop-types'
-import { forwardRef } from 'react'
+
 import Link from 'next/link'
 
 import { useSectionThemeContext } from '@/contexts/SectionTheme.context'
@@ -15,23 +14,17 @@ import * as S from './Button.styles'
 /**
  * Wrapper component for rendering a link
  */
-const LinkWrapper = ({ target, href, children }) => {
-  // Check if href is provided and target is valid
+const LinkWrapper = memo(({ target, href, children }) => {
   if (href && ['_self', '_blank', '_parent', '_top'].includes(target)) {
     return (
-      <Link
-        href={href}
-        passHref
-        target={target}
-      >
+      <Link href={href} passHref target={target}>
         {children}
       </Link>
     )
   }
 
-  // Render the children as is if href is not provided or target is invalid
   return children
-}
+})
 
 /**
  * Button component
@@ -71,7 +64,7 @@ const Button = ({
   /**
    * Handle scrolling to the specified element
    */
-  const handleScrollTo = () => {
+  const handleScrollTo = useCallback(() => {
     const offset = 0
     const element = document.getElementById(scrollTo)
 
@@ -82,10 +75,8 @@ const Button = ({
     const { top } = element.getBoundingClientRect()
     const y = top + window.scrollY - offset
 
-    // Scroll to section
     window.scrollTo({ top: y, behavior: 'smooth' })
 
-    // Set focus on first focusable element of current section
     const focusable = element.querySelectorAll(
       'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
     )
@@ -95,13 +86,10 @@ const Button = ({
     }
 
     handleClick?.()
-  }
+  }, [scrollTo, handleClick])
 
   return (
-    <LinkWrapper
-      href={href}
-      target={target}
-    >
+    <LinkWrapper href={href} target={target}>
       <S.Button
         {...props}
         {...ariaProps}
@@ -114,14 +102,14 @@ const Button = ({
         ref={innerRef}
         onClick={scrollTo ? handleScrollTo : handleClick}
       >
-        {label ? <S.ButtonLabel>{label}</S.ButtonLabel> : null}
-        {iconEnd ? (
+        {label && <S.ButtonLabel>{label}</S.ButtonLabel>}
+        {iconEnd && (
           <Icon
             name={iconEnd}
             size={iconEndSize ? iconEndSize : 'medium'}
             aria-hidden
           />
-        ) : null}
+        )}
       </S.Button>
     </LinkWrapper>
   )
