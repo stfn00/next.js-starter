@@ -6,7 +6,7 @@ export const metadata = {
   description: 'Home page',
 }
 
-export default function RootLayout({ children }) {
+const RootLayout = ({ children }) => {
   return (
     <html lang="en">
       <body>
@@ -18,3 +18,5 @@ export default function RootLayout({ children }) {
     </html>
   )
 }
+
+export default RootLayout
