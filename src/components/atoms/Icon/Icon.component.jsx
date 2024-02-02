@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types'
 import { useMemo } from 'react'
+import PropTypes from 'prop-types'
 import dynamic from 'next/dynamic'
 
 import * as S from './Icon.styles'
@@ -11,11 +11,11 @@ const getIcon = (name) => {
   return Icon
 }
 
-const Icon = ({ name, ariaLabel, ...props }) => {
+const Icon = ({ name, ariaLabel = name.replaceAll('-', ' '), ...props }) => {
   const SvgIcon = useMemo(() => getIcon(name), [name])
 
   return (
-    <S.Icon {...props} aria-label={ariaLabel || name.replaceAll('-', ' ')}>
+    <S.Icon {...props} aria-label={ariaLabel}>
       <SvgIcon />
     </S.Icon>
   )
