@@ -19,5 +19,8 @@
     "@svgr/webpack": "^8.1.0",
     "eslint": "^8",
     "eslint-config-next": "14.0.4"
+  },
+  "volta": {
+    "node": "20.10.0"
   }
 }
