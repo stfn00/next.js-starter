@@ -1,4 +1,0 @@
-{
-  "framework": "nextjs",
-  "ignoreCommand": "bash ignore-build.sh"
-}
