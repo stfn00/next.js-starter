@@ -9,7 +9,7 @@ export const useSectionThemeContext = () => {
 
   if (!context) {
     throw new Error(
-      'useSectionThemeContext must be used within a SectionThemeProvider'
+      'useSectionThemeContext must be used within a SectionThemeContext.Provider'
     )
   }
   return context
