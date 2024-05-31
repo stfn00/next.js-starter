@@ -19,7 +19,7 @@ const reset = css`
   }
 
   /* Remove default margin in favour of better control in authored CSS */
-  body, h1, h2, h3, h4, p,
+  body, h1, h2, h3, h4, h5, h6, p,
   figure, blockquote, dl, dd {
     margin: 0;
   }
@@ -37,14 +37,15 @@ const reset = css`
   }
 
   /* Set shorter line heights on headings and interactive elements */
-  h1, h2, h3, h4,
+  h1, h2, h3, h4, h5, h6,
   button, input, label {
     line-height: 1.1;
   }
 
   /* Balance text wrapping on headings */
   h1, h2,
-  h3, h4 {
+  h3, h4,
+  h5, h6 {
     text-wrap: balance;
   }
 
