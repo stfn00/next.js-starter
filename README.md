@@ -1,3 +1,11 @@
+## Environments
+
+Site: [https://next-js-starter-swart.vercel.app/](https://next-js-starter-swart.vercel.app/)
+
+Storybook: [https://next-js-starter-storybook.vercel.app/](https://next-js-starter-storybook.vercel.app/?path=/docs/welcome--docs/)
+
+---
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
