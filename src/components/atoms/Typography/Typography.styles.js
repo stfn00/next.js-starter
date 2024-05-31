@@ -13,6 +13,7 @@ export const Typography = styled.p`
   color: ${({ theme, colorScheme }) => theme.colors[colorScheme].surface.text};
 
   a {
+    text-decoration: none;
     background-image: linear-gradient(0deg, currentColor, currentColor);
     background-position: 100% 100%;
     background-repeat: no-repeat;
@@ -40,15 +41,16 @@ export const Typography = styled.p`
   ol, ul {
     margin-block-start: ${({ theme }) => theme.rem(8)};
     margin-block-end: ${({ theme }) => theme.rem(8)};
-    padding-inline-start: ${({ theme }) => theme.rem(16)};
   }
 
   ol {
     list-style: decimal;
+    padding-inline-start: ${({ theme }) => theme.rem(32)};
   }
 
   ul {
     list-style: disc;
+    padding-inline-start: ${({ theme }) => theme.rem(16)};
   }
 
   > p:not(:last-child) {

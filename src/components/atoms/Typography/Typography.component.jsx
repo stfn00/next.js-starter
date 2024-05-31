@@ -11,6 +11,7 @@ const Typography = memo(({ children, content, ...props }) => {
   return typeof children === 'string' ? (
     <S.Typography
       {...props}
+      as="div"
       colorScheme={colorScheme}
       dangerouslySetInnerHTML={{ __html: children }}
     />
