@@ -1,0 +1,256 @@
+import { Meta, Source, Canvas } from '@storybook/blocks';
+
+import ThemeProvider from '@/contexts/Theme.context'
+import { Container, Row, Col } from '@/components/atoms/GridSystem'
+
+import * as GridSystem from './GridSystem.stories'
+
+<Meta name="Docs" of={GridSystem} />
+
+# Grid System
+
+<Canvas>
+  <ThemeProvider>
+    <Container debug>
+      <Row>
+        <Col debug xs={1} sm={1} lg={1} offsetRight={{ xs: 3, sm: 7, lg: 11 }}>&nbsp;</Col>
+        <Col debug xs={1} sm={1} lg={2} offsetRight={{ xs: 3, sm: 7, lg: 10 }}>&nbsp;</Col>
+        <Col debug xs={1} sm={2} lg={3} offsetRight={{ xs: 3, sm: 6, lg: 9 }}>&nbsp;</Col>
+        <Col debug xs={2} sm={3} lg={4} offsetRight={{ xs: 2, sm: 5, lg: 8 }}>&nbsp;</Col>
+        <Col debug xs={2} sm={4} lg={5} offsetRight={{ xs: 2, sm: 4, lg: 7 }}>&nbsp;</Col>
+        <Col debug xs={2} sm={5} lg={6} offsetRight={{ xs: 2, sm: 3, lg: 6 }}>&nbsp;</Col>
+        <Col debug xs={3} sm={5} lg={7} offsetRight={{ xs: 1, sm: 3, lg: 5 }}>&nbsp;</Col>
+        <Col debug xs={3} sm={5} lg={8} offsetRight={{ xs: 1, sm: 3, lg: 4 }}>&nbsp;</Col>
+        <Col debug xs={3} sm={6} lg={9} offsetRight={{ xs: 1, sm: 2, lg: 3 }}>&nbsp;</Col>
+        <Col debug xs={4} sm={7} lg={10} offsetRight={{ sm: 1, lg: 2 }}>&nbsp;</Col>
+        <Col debug xs={4} sm={8} lg={11} offsetRight={{ lg: 1 }}>&nbsp;</Col>
+        <Col debug xs={4} sm={8} lg={12}>&nbsp;</Col>
+      </Row>
+    </Container>
+  </ThemeProvider>
+</Canvas>
+
+The basic GridSystem is made up of:
+* `12` columns in `xs`
+* `12` columns from `sm` to `md`
+* `12` columns from `lg` up
+
+```json
+{
+  // Number of columns in Grid based on Breakpoints
+  columns: {
+    xs: 12,
+    sm: 12,
+    md: 12,
+    lg: 12,
+    xl: 12,
+    xxl: 12,
+  },
+  // `padding-left` and `padding-right` of `<Col />` based on Breakpoints
+  gutterWidth: {
+    xs: 16,
+    sm: 16,
+    md: 24,
+    lg: 24,
+    xl: 24,
+    xxl: 24,
+  },
+  // `padding-left` and `padding-right` of `<Container />` based on Breakpoints
+  paddingWidth: {
+    xs: 16,
+    sm: 16,
+    md: 24,
+    lg: 24,
+    xl: 24,
+    xxl: 24,
+  },
+  // `<Container />` max width based on Breakpoints
+  container: {
+    xs: "100%",
+    sm: 540,
+    md: 720,
+    lg: 960,
+    xl: 1140,
+    xxl: 1280,
+  }
+}
+```
+
+
+
+<br />
+
+# Index
+
+* [Container](#container-)
+* [Row](#row-)
+* [Col](#col-)
+* [SpacerBase](#spacerbase-)
+* [Visible](#visible-)
+
+
+
+<br /><br />
+
+## `<Container />`
+
+### Props
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `fluid` | boolean | `undefined` | Full-width container |
+| `noGutter` | boolean | `undefined` | Remove paddind on left and right side: `paddingWidth` |
+| `debug` | boolean | `undefined` | Background debug |
+| `children` | node |  | Content |
+
+### Code
+<Source
+  dark
+  language="jsx"
+  type="code"
+  code={`
+<Container
+  fluid
+  noGutter
+  debug
+/>
+  `}
+/>
+
+
+
+<br />
+
+## `<Row />`
+
+### Props
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `justify` | string or object | `undefined` | Set `justify-content` css property |
+| `align` | string or object | `undefined` | Set `align-items` css property |
+| `reverse` | boolean or array | `undefined` | Reverse order of below `<Col />` |
+| `debug` | boolean | `undefined` | Background debug |
+| `children` | node |  | Content |
+
+### Code
+<Source
+  dark
+  language="jsx"
+  type="code"
+  code={`
+<Row
+  justify="center" or justify={{ xs: "flex-start", lg: "center" }}
+  align="center" or align={{ xs: "flex-start", lg: "center" }}
+  reverse or reverse={["xs", "sm"]}
+  debug
+/>
+  `}
+/>
+
+
+
+<br />
+
+## `<Col />`
+
+### Props
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `xs` | number or string | `12` | Set the number of columns on `xs` screen |
+| `sm` | number or string | `12` | Set the number of columns on `sm` screen |
+| `md` | number or string | `12` | Set the number of columns on `md` screen |
+| `lg` | number or string | `12` | Set the number of columns on `lg` screen |
+| `xl` | number or string | `12` | Set the number of columns on `xl` screen |
+| `xxl` | number or string | `12` | Set the number of columns on `xxl` screen |
+| `$direction` | string or object | `column` | Set `flex-direction` css property for the content below |
+| `justify` | string or object | `undefined` | Set `justify-content` css property for the content below |
+| `align` | string or object | `undefined` | Set `align-items` css property for the content below |
+| `$order` | number or object | `undefined` | Set `order` css property |
+| `$offset` | number or object | `undefined` | Set the number of the left offset columns on the left |
+| `offsetRight` | number or object | `undefined` | Set the number of the offset columns on the right |
+| `reverse` | boolean or array | `undefined` | Reverse the direction for the content below |
+| `noGutter` | boolean | `undefined` | Remove paddind on left and right side: `gutterWidth` |
+| `debug` | boolean | `undefined` | Background debug |
+| `children` | node |  | Content |
+
+### Code
+<Source
+  dark
+  language="jsx"
+  type="code"
+  code={`
+<Col
+  xs={2}
+  sm={2}
+  md={4}
+  lg={4}
+  xl={6}
+  xxl={6}
+  $direction="row" or $direction={{ xs: "column", lg: "row" }}
+  justify="center" or justify={{ xs: "flex-start", lg: "center" }}
+  align="center" or align={{ xs: "flex-start", lg: "center" }}
+  $order={2} or $order={{ xs: 2, lg: 3 }}
+  $offset={2} or $offset={{ xs: 4, lg: 6 }}
+  offsetRight={2} or offsetRight={{ xs: 4, lg: 6 }}
+  reverse or reverse={["xs", "sm"]}
+  noGutter
+  debug
+/>
+  `}
+/>
+
+
+
+<br />
+
+## `<SpacerBase />`
+
+### Props
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `xs` | number or string | `undefined` | Set `height` of element in `rem` on `xs` screen |
+| `sm` | number or string | `undefined` | Set `height` of element in `rem` on `sm` screen |
+| `md` | number or string | `undefined` | Set `height` of element in `rem` on `md` screen |
+| `lg` | number or string | `undefined` | Set `height` of element in `rem` on `lg` screen |
+| `xl` | number or string | `undefined` | Set `height` of element in `rem` on `xl` screen |
+| `xxl` | number or string | `undefined` | Set `height` of element in `rem` on `xxl` screen |
+
+### Code
+<Source
+  dark
+  language="jsx"
+  type="code"
+  code={`
+<SpacerBase
+  xs={2}
+  sm={2}
+  md={4}
+  lg={4}
+  xl={6}
+  xxl={6}
+/>
+  `}
+/>
+
+
+
+<br />
+
+## `<Visible />`
+
+### Props
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `breakpoints` | string or array | `undefined` | Show `children` only in the screen sizes passed |
+| `children` | node |  | Content |
+
+### Code
+<Source
+  dark
+  language="jsx"
+  type="code"
+  code={`
+<Visible
+  breakpoints="lg" or breakpoints={["xs", "sm", "md"]}
+/>
+  `}
+/>
