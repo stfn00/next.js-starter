@@ -6,6 +6,7 @@ export default {
   tags: ['autodocs'],
   args: {
     label: 'Button Label',
+    iconEnd: 'arrow-right',
   },
 }
 
@@ -13,7 +14,6 @@ export default {
 export const Primary = {
   args: {
     variant: 'primary',
-    iconEnd: 'arrow-right',
   },
 }
 
@@ -21,6 +21,5 @@ export const Primary = {
 export const Secondary = {
   args: {
     variant: 'secondary',
-    iconEnd: 'arrow-right',
   },
 }
