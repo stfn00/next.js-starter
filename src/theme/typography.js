@@ -50,22 +50,22 @@ export default {
     },
   },
   displayXS: {
-    'font-size': 24,
-    'line-height': 32,
+    'font-size': 20,
+    'line-height': 28,
     mq: {
       lg: {
-        'font-size': 20,
-        'line-height': 28,
+        'font-size': 24,
+        'line-height': 32,
       },
     },
   },
   paragraphXL: {
     'font-size': 20,
-    'line-height': 18,
+    'line-height': 24,
   },
   paragraphLG: {
     'font-size': 18,
-    'line-height': 28,
+    'line-height': 24,
   },
   paragraphMD: {
     'font-size': 16,
